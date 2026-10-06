@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.npz
+*.npy
+*.tif
+*.tiff
+*.pt
+*.pth
+.DS_Store
+Thumbs.db
+
+# Large/local data
+data/real/*
+data/synthetic/*
+!data/real/.gitkeep
+!data/synthetic/.gitkeep
+
+# Local figures may be regenerated/curated before publication
+results/figures/*
+!results/figures/.gitkeep

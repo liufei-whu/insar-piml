@@ -1,0 +1,5 @@
+model,lambda_phys,mean_E,median_E,best_epoch
+baseline,0,0.300736,0.264566,22
+piml,0.01,0.297952,0.260436,35
+piml,0.1,0.297597,0.265047,78
+piml,1,0.326558,0.308334,84

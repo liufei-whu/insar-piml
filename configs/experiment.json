@@ -1,0 +1,34 @@
+{
+  "project": "synthetic-to-real InSAR finite-fault inversion",
+  "baseline": {
+    "train": 50000,
+    "validation": 5000,
+    "test": 1000,
+    "grid": 64,
+    "seed": 42,
+    "batch_size": 64,
+    "event_conditioning": [
+      "x",
+      "y",
+      "Mw",
+      "H"
+    ],
+    "seismic_depth_input": false,
+    "xy_prior_sigma_km": 5
+  },
+  "piml": {
+    "lambda_phys": [
+      0.01,
+      0.1,
+      1.0
+    ],
+    "gradient_clip": 5,
+    "okada_microbatch": 16,
+    "physics_target": "paired clean synthetic deformation"
+  },
+  "real_events": [
+    "jishishan",
+    "albania",
+    "morocco"
+  ]
+}
