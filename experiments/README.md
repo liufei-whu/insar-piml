@@ -1,15 +1,31 @@
-# Supporting experiments
+# Experiments
 
-These experiments support the project narrative but are not used to redefine the primary baseline after seeing real-event results.
+These are thin experiment entry points; the scientific implementation lives in `src/`.
 
-| Experiment | Outcome | Role |
-|---|---|---|
-| 250k synthetic scaling | Mean synthetic E improved to 0.248501, but real transfer did not consistently improve; CPU training was about 498 min | Scaling ablation |
-| Moderate PIML (`lambda=0.01, 0.1`) | ~1% synthetic improvement; each improves 5/6 real event/plane fits | Main physics comparison |
-| Strong PIML (`lambda=1`) | Synthetic error worsened and real behavior became strongly event dependent | Negative/regularization-strength result |
-| Event-local training | Mixed: helped some planes and hurt others | Exploratory only |
-| Multiscale / scale augmentation | Failed or mixed | Retired direction |
-| Joint nuisance/ramp prediction | Worse overall | Negative result |
-| Robust detrending | Large gains for some events, losses for others; can absorb true deformation | Domain-shift diagnostic only |
+## Frozen 50k baseline
 
-The 50k XY5/no-depth model remains the frozen pure-ML baseline.
+```bash
+python experiments/run_baseline_50k.py
+```
+
+The 50k model is the primary baseline; 250k is only a scaling ablation.
+
+## PIML physics-weight sweep
+
+```bash
+python experiments/run_piml_sweep.py
+```
+
+This records the reported weights: 0, 0.01, 0.1, and 1.0.
+
+## Real events
+
+For explicit checkpoint/model selection:
+
+```bash
+python src/evaluate_real.py --event all --model baseline
+python src/evaluate_real.py --event all --model piml --lambda-phys 0.1
+```
+
+`results/summary/` contains the committed reference outputs. Large synthetic datasets
+and trained checkpoints remain excluded from Git.

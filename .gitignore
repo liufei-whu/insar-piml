@@ -19,3 +19,10 @@ data/synthetic/*
 # Local figures may be regenerated/curated before publication
 results/figures/*
 !results/figures/.gitkeep
+
+# Small preprocessed real-event products intentionally versioned
+!data/real/
+!data/real/README.md
+!data/real/jishishan_2023_dual_los_64.npz
+!data/real/albania_2019_dual_los_64_h60.npz
+!data/real/morocco_2023_dual_los_64.npz
