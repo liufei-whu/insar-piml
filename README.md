@@ -154,3 +154,15 @@ The project also explored 250k synthetic scaling, alternative seismic priors, ev
 ## Research takeaway
 
 **Differentiable physics is most useful here as a moderate training regularizer rather than a dominant objective:** the synthetic metric changes little, but moderate physics weights improve most real event/plane deformation fits, while excessive physics weighting can hurt.
+
+### Pure ML vs PIML real-event reconstructions
+
+The following qualitative comparison uses the frozen 50k pure-ML baseline and a representative moderate PIML model ($\lambda_{\mathrm{phys}}=0.1$). Both nodal planes are shown to avoid post-hoc focal-plane selection. Columns compare observed LOS deformation, model prediction, and residual for ascending and descending tracks. The $\lambda=0.1$ model is shown as a representative moderate physics weight; it was not selected retrospectively as a universal real-event optimum.
+
+**Nodal plane 1 (NP1)**
+
+![Pure ML vs PIML real-event reconstructions, NP1](results/figures/ml_vs_piml_real_reconstructions_np1.png)
+
+**Nodal plane 2 (NP2)**
+
+![Pure ML vs PIML real-event reconstructions, NP2](results/figures/ml_vs_piml_real_reconstructions_np2.png)
