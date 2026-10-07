@@ -2,6 +2,12 @@
 
 A reproducible research project for **nine-parameter finite-fault earthquake source inversion** from dual-track InSAR and seismic priors. The project asks whether adding a differentiable Okada forward model during training improves transfer from realistic synthetic data to real earthquakes.
 
+## Overview
+
+![Synthetic-to-real PIML inversion pipeline](results/figures/pipeline.png)
+
+**Figure 1.** Project workflow. Physics-based synthetic finite-fault sources are converted to dual-track InSAR with a differentiable Okada model, realistically degraded, and inverted by the frozen CNN baseline or PIML model. PIML adds deformation consistency against the paired clean synthetic target during training. Real-event evaluation uses physical grids and pixel-wise LOS geometry without Powell refinement.
+
 ## Method
 
 The network maps dual-track InSAR plus seismic priors to source parameters:
@@ -27,6 +33,12 @@ The primary baseline uses **50,000 realistic synthetic training examples**. Even
 Synthetic examples use a single finite rectangular dislocation, full 360-degree strike coverage, adaptive 40/60 km field of view, dual viewing geometries, noisy seismic priors, and realistic InSAR degradation.
 
 The degradation model includes white noise, spatially correlated atmospheric noise, orbital ramp, bilinear distortion, decorrelation noise, and spatially correlated missing pixels. PIML physics supervision uses the paired **clean synthetic deformation**, not the degraded observation.
+
+## Real case studies
+
+![Actual preprocessed real-event InSAR](results/figures/real_event_observations.png)
+
+**Figure 2.** Actual preprocessed ascending and descending LOS observations used for Jishishan (2023), Albania (2019), and Morocco (2023). Each event uses one symmetric color scale shared by its ASC/DES pair; scales differ across events because their displacement ranges differ substantially.
 
 ## Main results
 
@@ -57,6 +69,12 @@ Equal-track RMSE in mm:
 `lambda=0.01` and `lambda=0.1` each improve **5 of 6** event/plane cases relative to the frozen pure-ML baseline. No single physics weight is selected retrospectively using the real-event test cases.
 
 The central result is therefore deliberately modest: adding differentiable Okada consistency produces only a small synthetic improvement for moderate weights, while producing larger deformation-fit improvements in several real cases. Strong physics regularization is not uniformly beneficial.
+
+## Quantitative real-event comparison
+
+![Real-event RMSE comparison](results/figures/real_event_rmse.png)
+
+**Figure 3.** Equal-track deformation RMSE for the frozen 50k pure-ML baseline and PIML physics weights. Moderate weights `lambda=0.01` and `lambda=0.1` each improve 5 of 6 event/plane cases relative to the baseline; `lambda=1` is strongly event dependent.
 
 ## Repository
 
