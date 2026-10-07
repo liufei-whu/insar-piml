@@ -166,3 +166,11 @@ The following qualitative comparison uses the frozen 50k pure-ML baseline and a 
 **Nodal plane 2 (NP2)**
 
 ![Pure ML vs PIML real-event reconstructions, NP2](results/figures/ml_vs_piml_real_reconstructions_np2.png)
+
+## License
+
+The software is released under the MIT License. Preprocessed real-event InSAR
+products remain subject to applicable upstream data-provider terms; see
+`data/README.md`.
+
+**Random seed:** seed 42 is used for the primary reported experiments.

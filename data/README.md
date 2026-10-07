@@ -45,3 +45,15 @@ data/
 ```
 
 Do not commit large `.npz`, `.npy`, GeoTIFF, or checkpoint files to the normal Git history.
+
+## Licensing
+
+The source code in this repository is released under the MIT License; see
+`LICENSE`.
+
+The real-event InSAR files under `data/real/` are compact derived/preprocessed
+research products. The MIT software license does **not** override any rights,
+licences, attribution requirements, or redistribution conditions associated
+with the upstream satellite observations or data providers. Users are
+responsible for complying with the applicable upstream terms when reusing or
+redistributing those data products.

@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this software or derived results, please cite this repository."
+title: "Physics-Informed Deep Learning for Synthetic-to-Real InSAR Earthquake Source Inversion"
+type: software
+authors:
+  - family-names: "Liu"
+    given-names: "Fei"
+repository-code: "https://github.com/liufei-whu/insar-piml"
